@@ -1,6 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
+const path = require('path');
+
+// Ensure upload directories exist on server boot
+const uploadDir = path.join(__dirname, 'uploads', 'passports');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 const multer = require('multer');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
