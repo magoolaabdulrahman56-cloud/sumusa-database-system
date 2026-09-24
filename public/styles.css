@@ -1,0 +1,153 @@
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; margin: 0; padding: 0; color: #333; }
+/* Header & Brand Logos Styling */
+header {
+  background: #004085;
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Enhanced & Prominent Brand Logos */
+.header-logo img {
+  height: 110px; /* Increased height for high visibility */
+  width: auto;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid #e0e6ed;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease-in-out;
+}
+
+.header-logo img:hover {
+  transform: scale(1.03); /* Subtle zoom effect on hover */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 28px; /* Slightly larger heading to balance bigger logos */
+  letter-spacing: 1.2px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.header-title p {
+  margin: 6px 0 0;
+  font-size: 16px;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.auth-area {
+  margin-top: 5px;
+}
+
+/* Responsiveness for Mobile Displays */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .header-right {
+    align-items: center;
+  }
+}
+
+.container { max-width: 1200px; margin: 25px auto; padding: 0 15px; }
+.card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 25px; }
+.card h2 { margin-top: 0; color: #0056b3; font-size: 20px; border-bottom: 2px solid #eef2f5; padding-bottom: 10px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 15px; }
+input, select, button { padding: 11px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; width: 100%; box-sizing: border-box; }
+input:focus, select:focus { outline: none; border-color: #0056b3; }
+
+.file-input { margin-top: 18px; }
+.file-input label { display: block; font-weight: bold; margin-bottom: 6px; font-size: 14px; }
+
+button { background: #28a745; color: white; border: none; font-weight: bold; cursor: pointer; margin-top: 18px; font-size: 15px; transition: background 0.2s; }
+button:hover { background: #218838; }
+
+.table-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
+.table-header input { width: 320px; }
+
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; font-size: 14px; }
+th { background: #f8f9fa; color: #495057; font-weight: 600; }
+
+.thumb { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd; }
+.badge { padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; display: inline-block; }
+.badge.active { background: #d4edda; color: #155724; }
+.badge.inactive { background: #f8d7da; color: #721c24; }
+.badge.alumni { background: #e2e3e5; color: #383d41; }
+/* Action Button Styles */
+.btn-edit { background: #ffc107; color: #212529; border: none; padding: 6px 12px; margin-right: 5px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; width: auto; display: inline-block; }
+.btn-edit:hover { background: #e0a800; }
+
+.btn-delete { background: #dc3545; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; width: auto; display: inline-block; }
+.btn-delete:hover { background: #c82333; }
+/* Header Layout & Login Modal */
+.header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+.btn-sm { background: white; color: #0056b3; border: none; padding: 8px 16px; border-radius: 4px; font-weight: bold; cursor: pointer; width: auto; }
+.btn-sm:hover { background: #e2e6ea; }
+
+.modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+.modal-content { background: white; margin: 10% auto; padding: 25px; border-radius: 8px; width: 90%; max-width: 400px; position: relative; }
+.close-modal { position: absolute; right: 15px; top: 10px; font-size: 24px; font-weight: bold; cursor: pointer; }
+.modal-content input { margin-bottom: 12px; }
+/* Gender Statistics Cards */
+.stats-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  background: #f8f9fa;
+  border-left: 4px solid #0056b3;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.stat-card.male {
+  border-left-color: #17a2b8;
+}
+
+.stat-card.female {
+  border-left-color: #e83e8c;
+}
+
+.stat-card strong {
+  font-size: 18px;
+  margin-left: 5px;
+}

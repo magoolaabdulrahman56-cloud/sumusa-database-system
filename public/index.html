@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUMUSA Database System - Soroti University</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- jsPDF and AutoTable Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="header-logo left-logo">
+        <img src="sun_logo.png" alt="Soroti University Logo">
+      </div>
+
+      <div class="header-title">
+        <h1>SUMUSA DATABASE SYSTEM</h1>
+        <p>Soroti University Muslim Students' Association</p>
+      </div>
+
+      <div class="header-right">
+        <div class="header-logo right-logo">
+          <img src="sumusa_logo.png" alt="SUMUSA Logo">
+        </div>
+        <div id="authStatusArea" class="auth-area"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Admin Login Modal -->
+    <div id="loginModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Executive Login</h2>
+        <form id="loginForm">
+          <input type="text" id="loginUsername" placeholder="Username" required>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <button type="submit" class="btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Change Password Modal -->
+    <div id="passwordModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal close-password-modal">&times;</span>
+        <h2>Change Admin Password</h2>
+        <form id="changePasswordForm">
+          <input type="password" id="currentPassword" placeholder="Current Password" required>
+          <input type="password" id="newPassword" placeholder="New Password" required>
+          <button type="submit" class="btn-primary">Update Password</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Registration Form (Admin Only) -->
+    <section class="card" id="registrationCard" style="display: none;">
+      <h2>Register / Edit Member</h2>
+      <form id="memberForm" enctype="multipart/form-data">
+        <div class="grid">
+          <input type="text" name="student_reg_no" placeholder="Reg Number (e.g., 23/U/001/ENG)" required>
+          <input type="text" name="full_name" placeholder="Full Name" required>
+          
+          <select name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+
+          <input type="email" name="email" placeholder="Email Address (Optional)">
+          <input type="text" name="contact" placeholder="Contact (e.g., 0771234567)" required>
+          
+          <input type="text" name="school" placeholder="School (e.g., School of Engineering)" required>
+          <input type="text" name="program" placeholder="Program (e.g., B.Sc. Electronics)" required>
+          <input type="number" name="year_joined" placeholder="Year Joined (e.g., 2024)" min="2010" max="2099" required>
+          
+          <input type="text" name="association_role" placeholder="Role (e.g., Executive, Member)">
+          
+          <select name="membership_status">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+            <option value="Alumni">Alumni</option>
+          </select>
+        </div>
+
+        <div class="file-input">
+          <label for="passport_photo">Upload Passport Size Photo:</label>
+          <input type="file" id="passport_photo" name="passport_photo" accept="image/*" required>
+        </div>
+
+        <button type="submit" id="submitBtn">Save Member to Database</button>
+      </form>
+    </section>
+
+    <!-- Member Directory Table -->
+    <section class="card">
+      <div class="table-header">
+        <h2>Registered Members</h2>
+        <div class="table-actions">
+          <button id="downloadPdfBtn" class="btn-sm btn-pdf">📄 Download PDF</button>
+          <input type="text" id="searchInput" placeholder="Search by name, reg no, contact, or school...">
+        </div>
+      </div>
+
+      <!-- Gender Statistics Bar -->
+      <div class="stats-bar" id="statsBar">
+        <div class="stat-card">Total Members: <strong id="statTotal">0</strong></div>
+        <div class="stat-card male">Males: <strong id="statMale">0</strong></div>
+        <div class="stat-card female">Females: <strong id="statFemale">0</strong></div>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Photo</th>
+            <th>Reg No</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Contact / Email</th>
+            <th>School / Program</th>
+            <th>Year Joined</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th class="admin-only" style="display: none;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="membersTableBody">
+          <!-- Loaded dynamically -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
